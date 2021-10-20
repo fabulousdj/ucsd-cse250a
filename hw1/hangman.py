@@ -16,7 +16,6 @@ def prob_l_at_any_i_given_w(curr: list, w: str, l: str) -> float:
     return 0
 
 
-# %%
 def prob_e_given_w(curr: list, block_set: set, w: str) -> float:
     for i in range(0, len(curr)):
         if curr[i] == '_':
@@ -27,7 +26,6 @@ def prob_e_given_w(curr: list, block_set: set, w: str) -> float:
     return 1
 
 
-# %%
 def best_next_guess(curr: list, block_list: list, word_counts: pd.DataFrame) -> [str, float]:
     # add chars in curr into block list
     block_list += [c for c in curr if c != '_']
@@ -52,4 +50,21 @@ def best_next_guess(curr: list, block_list: list, word_counts: pd.DataFrame) -> 
 
 
 if __name__ == '__main__':
-    best_next_guess(['A','_','_','_','S'], [], word_counts)
+    # %%
+    print(best_next_guess(['_', '_', '_', '_', '_'], [], word_counts))
+    # %%
+    print(best_next_guess(['_', '_', '_', '_', '_'], ['E', 'A'], word_counts))
+    # %%
+    print(best_next_guess(['A', '_', '_', '_', 'S'], [], word_counts))
+    # %%
+    print(best_next_guess(['A', '_', '_', '_', 'S'], ['I'], word_counts))
+    # %%
+    print(best_next_guess(['_', '_', 'O', '_', '_'], ['A', 'E', 'M', 'N', 'T'], word_counts))
+    # %%
+    print(best_next_guess(['_', '_', '_', '_', '_'], ['E', 'O'], word_counts))
+    # %%
+    print(best_next_guess(['D', '_', '_', 'I', '_'], [], word_counts))
+    # %%
+    print(best_next_guess(['D', '_', '_', 'I', '_'], ['A'], word_counts))
+    # %%
+    print(best_next_guess(['_', 'U', '_', '_', '_'], ['A', 'E', 'I', 'O', 'S'], word_counts))
